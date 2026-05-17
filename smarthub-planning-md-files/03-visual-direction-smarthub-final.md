@@ -172,28 +172,31 @@ MUI 기본 팔레트의 선명한 Primary Blue를 낮추고, 더 차분하고 �
 
 ---
 
-## 2-2. 4색 원칙
+## 2-2. 색상 체계 원칙
 
-색상 체계는 네 가지 축으로 확정한다.
+색상 체계는 스마트허브병원의 공식 블루, 그린, 오렌지 축으로 확정한다.
 
 | 색상 역할 | 확정 방향 | 경험적 의미 | 사용처 |
 |---|---|---|---|
-| Warm White | 따뜻한 백색 | 병원 특유의 차가움을 줄이고 읽기 편한 바탕 제공 | 전체 배경, 섹션 배경 |
-| Warm Black | 완전한 검정이 아닌 따뜻한 먹색 | 정보의 신뢰, 가독성, 선의 기준 | 본문, 헤드라인, 라인, 아이콘 |
-| Smart Medical Blue | 선명한 블루가 아닌 muted navy-blue | 의료 신뢰, 기업 대응, 공식성 | 주요 CTA, 활성 상태, 핵심 링크 |
-| Field Sage | 저채도 세이지 그린 | 현장성, 안정감, 건강관리의 부드러운 확장 | 보조 강조, 상태 안내, 정보 배지 |
+| White | 깨끗한 백색 | 의료적 청결감과 정보 가독성 | 전체 배경, 카드, 폼 |
+| SmartHub Blue | 선명한 하늘색/블루 | 병원의 대표 인상, 접근성, 주요 행동 | 주요 CTA, 링크, 활성 상태 |
+| Deep Blue | 진한 블루 | 신뢰, 공식성, 헤더/강조 | 헤더, 중요 CTA hover, 핵심 문장 |
+| SmartHub Green | 명확한 그린 | 건강, 진행, 긍정 상태 | 보조 CTA, 완료 상태, 정보 배지 |
+| Orange | 따뜻한 주의/강조색 | 긴급도, 안내, 중요 알림 | 안내 배지, warning, 보조 강조 |
+| Light Grey / Soft Blue | 연회색과 연한 블루 | 화면 호흡과 부드러운 구분 | 섹션 배경, 보조 패널, 포인트 표면 |
 
 추천 비율은 다음과 같다.
 
 ```txt
-Warm White / Surface: 65~75%
-Warm Black / Text & Line: 15~25%
-Smart Medical Blue: 5~8%
-Field Sage: 2~5%
+White / Surface: 60~70%
+Light Grey / Soft Blue Surface: 15~25%
+SmartHub Blue: 6~10%
+SmartHub Green: 3~6%
+Orange: 1~3%
 ```
 
 즉, 컬러가 화면을 장악하지 않아야 한다.  
-대부분의 경험은 **여백, 선, 타이포, 정보 구조**로 만들어지고, 색은 사용자의 다음 행동을 안내하는 정도로만 사용한다.
+대부분의 경험은 **여백, 선, 타이포, 정보 구조**로 만들어지고, 블루는 대표 행동, 그린은 건강/완료, 오렌지는 주의/강조에 제한적으로 사용한다.
 
 ---
 
@@ -203,31 +206,31 @@ Field Sage: 2~5%
 구현 단계에서 미세 조정은 가능하지만, 역할과 대비 기준은 유지한다.
 
 ```txt
-Background / Warm White       #F7F4ED
-Surface / Soft Paper          #EEEAE1
-Surface Alt / Calm Panel      #E7E3D8
-Text / Warm Black             #181714
-Text Secondary / Muted Ink    #4A4740
-Line / Warm Line              #D8D2C7
-Primary / Smart Medical Blue  #244B63
-Primary Dark / Deep Blue      #173446
-Primary Soft / Blue Surface   #DDE8EE
-Secondary / Field Sage        #D8E2DC
-Secondary Dark / Sage Deep    #526B63
-Error / Muted Medical Red     #A94A43
-Warning / Warm Sand           #D9A75F
-Success / Care Green          #3F6F5A
+Primary / SmartHub Blue       #0096D1
+Primary Dark / Deep Blue      #005D9B
+Primary Light / Bright Blue   #4CB7E8
+Primary Soft / Soft Blue      #A7D9F5
+Secondary / SmartHub Green    #63B32E
+Secondary Light / Lime Green  #8CC63F
+Accent / Orange               #F5A623
+Accent Dark / Deep Orange     #E38B00
+Background / White            #FFFFFF
+Surface / Light Grey          #EAEAEA
+Text / Ink                    #1F2933
+Text Secondary / Muted Ink    #52616B
+Line / Neutral Line           #D7DDE2
 ```
 
 ### 색상 사용 규칙
 
 ```txt
-배경은 Warm White를 기본으로 한다.
-카드는 순백이 아니라 Soft Paper 계열로 분리한다.
-CTA는 Smart Medical Blue를 기본으로 한다.
-Sage는 CTA 대체색이 아니라 보조 상태와 정보 분류에 사용한다.
-Error는 강한 빨강이 아니라 muted red로 낮춘다.
-Line은 회색이 아니라 Warm Black 계열의 낮은 알파값으로 통일한다.
+배경은 White를 기본으로 한다.
+섹션 배경과 보조 패널은 Light Grey 또는 Soft Blue로 분리한다.
+대표 CTA는 SmartHub Blue를 기본으로 한다.
+Deep Blue는 hover, 헤더, 신뢰 강조에 사용한다.
+Green은 건강, 완료, 긍정 상태와 보조 CTA에 사용한다.
+Orange는 안내, 주의, 중요 강조에 제한적으로 사용한다.
+Line은 Light Grey보다 한 단계 진한 중립선으로 통일한다.
 ```
 
 ---
@@ -941,33 +944,36 @@ MUI Palette는 브랜드 색상보다 **의미 역할**을 먼저 정의한다.
 const palette = {
   mode: 'light',
   primary: {
-    main: '#244B63',
-    dark: '#173446',
-    light: '#DDE8EE',
-    contrastText: '#F7F4ED',
+    main: '#0096D1',
+    dark: '#005D9B',
+    light: '#4CB7E8',
+    contrastText: '#FFFFFF',
   },
   secondary: {
-    main: '#D8E2DC',
-    dark: '#526B63',
-    contrastText: '#181714',
+    main: '#63B32E',
+    light: '#8CC63F',
+    contrastText: '#FFFFFF',
   },
   background: {
-    default: '#F7F4ED',
-    paper: '#EEEAE1',
+    default: '#FFFFFF',
+    paper: '#FFFFFF',
   },
   text: {
-    primary: '#181714',
-    secondary: '#4A4740',
+    primary: '#1F2933',
+    secondary: '#52616B',
   },
-  divider: '#D8D2C7',
-  error: {
-    main: '#A94A43',
-  },
+  divider: '#D7DDE2',
   warning: {
-    main: '#D9A75F',
+    main: '#F5A623',
+    dark: '#E38B00',
   },
   success: {
-    main: '#3F6F5A',
+    main: '#63B32E',
+  },
+  info: {
+    main: '#4CB7E8',
+    light: '#A7D9F5',
+    dark: '#005D9B',
   },
 };
 ```
@@ -976,10 +982,12 @@ const palette = {
 
 ```ts
 const semantic = {
-  surfaceAlt: '#E7E3D8',
-  lineStrong: 'rgba(24, 23, 20, 0.36)',
-  focusRing: '#244B63',
-  fieldComplete: '#526B63',
+  surfaceAlt: '#EAEAEA',
+  blueSoft: '#A7D9F5',
+  lineStrong: 'rgba(31, 41, 51, 0.32)',
+  focusRing: '#0096D1',
+  fieldComplete: '#63B32E',
+  accentOrange: '#F5A623',
 };
 ```
 
@@ -1115,13 +1123,13 @@ MuiInput: {
   styleOverrides: {
     underline: {
       '&:before': {
-        borderBottomColor: '#D8D2C7',
+        borderBottomColor: '#D7DDE2',
       },
       '&:hover:not(.Mui-disabled):before': {
-        borderBottomColor: 'rgba(24, 23, 20, 0.56)',
+        borderBottomColor: 'rgba(31, 41, 51, 0.56)',
       },
       '&:after': {
-        borderBottomColor: '#244B63',
+        borderBottomColor: '#0096D1',
         borderBottomWidth: 2,
       },
     },
@@ -1149,15 +1157,15 @@ MuiButton: {
       paddingInline: 24,
     },
     containedPrimary: {
-      backgroundColor: '#244B63',
-      color: '#F7F4ED',
+      backgroundColor: '#0096D1',
+      color: '#FFFFFF',
       '&:hover': {
-        backgroundColor: '#173446',
+        backgroundColor: '#005D9B',
       },
     },
     outlined: {
-      borderColor: 'rgba(24, 23, 20, 0.36)',
-      color: '#181714',
+      borderColor: 'rgba(31, 41, 51, 0.36)',
+      color: '#1F2933',
     },
   },
 }

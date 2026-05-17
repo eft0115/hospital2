@@ -83,6 +83,7 @@ Vibe Dictionary 텍소노미 v0.4 기반 분류. 번호는 텍소노미 카테�
 
 - GNB: 반응형 글로벌 네비게이션 바. 데스크탑 메뉴 / 모바일 Drawer (`components/navigation/GNB.jsx`)
 - NavMenu: 네비게이션 메뉴 (`components/navigation/NavMenu.jsx`)
+- HospitalNavigationBar: 병원 주요 메뉴용 메가 내비게이션 바. hover/focus 시 전체 하위 메뉴 패널 표시 (`components/navigation/HospitalNavigationBar.jsx`)
 - SlidingHighlightMenu: 슬라이딩 하이라이트 메뉴. hover 시 layoutId 기반 인디케이터 이동, background/underline, horizontal/vertical (`components/navigation/SlidingHighlightMenu.jsx`)
 
 ## 11. KineticTypography (Interactive) — 텍스트 애니메이션 효과
@@ -118,4 +119,3 @@ Vibe Dictionary 텍소노미 v0.4 기반 분류. 번호는 텍소노미 카테�
 - Indicator: 범용 인디케이터 (`common/ui/Indicator.jsx`)
 - Placeholder: 스토리 예제용 FPO 플레이스홀더 시스템. Box/Image/Media/Text/Line/Paragraph/Card 서브컴포넌트 (`common/ui/Placeholder.jsx`)
 - FilterBar: 필터 바 (`components/templates/FilterBar.jsx`)
-- SmartHubHome: 스마트허브병원 홈 페이지 템플릿. 상단 전화 배너, 2장 Hero 캐러셀, main_con01 이용 안내 박스, main_con02 팝업존/게시판 섹션, 상담 카드, 상황 카드 펼침 보기, 3장 핵심 서비스 캐러셀, 기업 담당자/개인 근로자 프로세스 동시 보기, FAQ, CTA 섹션 조합 (`components/templates/SmartHubHome.jsx`)

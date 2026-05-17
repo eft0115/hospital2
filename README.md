@@ -41,10 +41,12 @@ Claude Code가 이 프로젝트의 규칙을 자동으로 따르도록 설정되
 
 `src/styles/themes/default.js`에 정의된 디자인 토큰:
 
-- **Primary**: Pure Blue (`#0000FF`) / **Secondary**: Blue-Grey (`#263238`)
+- **Primary**: SmartHub Blue (`#0096D1`) / **Primary Dark**: Deep Blue (`#005D9B`)
+- **Secondary**: SmartHub Green (`#63B32E`) / **Accent**: Orange (`#F5A623`)
 - **Typography**: Outfit (영문) + Pretendard (한글)
-- **Shape**: borderRadius 0 (플랫 디자인)
-- **Elevation**: 저투명도 블러 그림자
+- **Background**: White (`#FFFFFF`) + Light Grey (`#EAEAEA`)
+- **Shape**: borderRadius 8 (정돈된 의료 UI)
+- **Elevation**: 그림자 최소화, 선 중심 계층
 
 ## 시작하기
 

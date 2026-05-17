@@ -299,7 +299,7 @@ const tokenStructure = {
     <TableBody>
       <TableRow>
         <TableCell sx={ { fontFamily: 'monospace' } }>primary.main</TableCell>
-        <TableCell sx={ { fontFamily: 'monospace' } }>#0000FF</TableCell>
+        <TableCell sx={ { fontFamily: 'monospace' } }>#0096D1</TableCell>
         <TableCell>주요 브랜드 색상</TableCell>
       </TableRow>
     </TableBody>
@@ -352,7 +352,7 @@ AI 코딩 도구에서 해당 토큰을 활용할 때 사용할 수 있는 프�
     borderRadius: 1,
   } }
 >
-{`"primary.main (#0000FF)을 사용해서 CTA 버튼을 만들어줘.
+{`"primary.main (#0096D1)을 사용해서 CTA 버튼을 만들어줘.
 hover 시 primary.dark로 변경되도록 해줘."`}
 </Box>
 ```
@@ -362,7 +362,7 @@ hover 시 primary.dark로 변경되도록 해줘."`}
 | 요소 | 설명 |
 |------|------|
 | 토큰 명시 | 사용할 토큰 경로를 명확히 언급 (예: `primary.main`) |
-| 값 참고 | 필요시 실제 값도 함께 표기 (예: `#0000FF`) |
+| 값 참고 | 필요시 실제 값도 함께 표기 (예: `#0096D1`) |
 | 컨텍스트 | 어떤 상황에서 사용하는지 설명 |
 | 상호작용 | hover, active 등 상태별 토큰 변화 명시 |
 

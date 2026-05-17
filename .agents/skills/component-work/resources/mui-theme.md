@@ -21,14 +21,29 @@ MUI 커스텀 테마 설정 규칙
 ### Primary Color
 ```jsx
 primary: {
-  main: '#0000FF'
+  main: '#0096D1',
+  dark: '#005D9B',
+  light: '#4CB7E8'
 }
 ```
 
 ### Secondary Color
 ```jsx
 secondary: {
-  main: blueGrey[900]  // blueGrey의 가장 어두운색
+  main: '#63B32E',
+  light: '#8CC63F'
+}
+```
+
+### Accent / Background
+```jsx
+warning: {
+  main: '#F5A623',
+  dark: '#E38B00'
+},
+background: {
+  default: '#FFFFFF',
+  paper: '#FFFFFF'
 }
 ```
 
@@ -66,8 +81,10 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
-    primary: { main: '#0000FF' },
-    secondary: { main: '#263238' },  // blueGrey[900]
+    primary: { main: '#0096D1', dark: '#005D9B', light: '#4CB7E8' },
+    secondary: { main: '#63B32E', light: '#8CC63F' },
+    warning: { main: '#F5A623', dark: '#E38B00' },
+    background: { default: '#FFFFFF', paper: '#FFFFFF' },
   },
   typography: {
     fontFamily: 'Pretendard Variable, sans-serif',
@@ -78,7 +95,7 @@ const theme = createTheme({
     // ...
   },
   shape: {
-    borderRadius: 0,
+    borderRadius: 8,
   },
 });
 
