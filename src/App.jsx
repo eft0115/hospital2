@@ -755,8 +755,6 @@ function NaverMapPanel() {
       }}
     >
       <Box
-        ref={mapRef}
-        aria-label="스마트허브병원 네이버 지도"
         sx={{
           position: 'absolute',
           inset: 0,
@@ -766,7 +764,17 @@ function NaverMapPanel() {
           opacity: isMapReady ? 1 : 0,
           transition: 'opacity 180ms ease',
         }}
-      />
+      >
+        <Box
+          ref={mapRef}
+          aria-label="스마트허브병원 네이버 지도"
+          sx={{
+            width: '100%',
+            height: '100%',
+            minHeight: { xs: 360, md: 480 },
+          }}
+        />
+      </Box>
       <Box
         component="iframe"
         title="스마트허브병원 위치 지도"
