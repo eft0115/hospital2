@@ -1,4 +1,5 @@
 import {
+  AccessTime,
   Air,
   ArrowForward,
   Article,
@@ -662,7 +663,7 @@ function NaverMapPanel() {
   const mapInstanceRef = useRef(null);
   const naverMapClientId = import.meta.env.VITE_NAVER_MAP_CLIENT_ID;
   const [isMapReady, setIsMapReady] = useState(false);
-  const [mapStatus, setMapStatus] = useState(() => (naverMapClientId ? 'loading' : 'missing-key'));
+  const [, setMapStatus] = useState(() => (naverMapClientId ? 'loading' : 'missing-key'));
 
   useEffect(() => {
     if (!naverMapClientId || !mapRef.current) {
@@ -811,32 +812,16 @@ function NaverMapPanel() {
           backdropFilter: 'blur(8px)',
         }}
       >
-        <Box>
-          <Chip label="NAVER MAP" sx={{ bgcolor: primary, color: 'white', fontWeight: 900, border: `2px solid ${greenLight}` }} />
-          <Typography sx={{ mt: 1.4, fontSize: { xs: 22, md: 26 }, fontWeight: 900, letterSpacing: 0 }}>
-            오시는 길
+        <Stack direction="row" alignItems="center" spacing={1.1}>
+          <AccessTime sx={{ color: primary, fontSize: 28 }} />
+          <Typography sx={{ fontSize: { xs: 22, md: 26 }, fontWeight: 900, letterSpacing: 0 }}>
+            진료시간
           </Typography>
-          <Typography sx={{ mt: .8, color: '#3D464D', fontSize: { xs: 14, md: 15 }, fontWeight: 700, lineHeight: 1.55 }}>
-            {mapStatus === 'missing-key'
-              ? '기본 지도를 표시 중입니다. 네이버 지도는 바로가기에서 확인할 수 있습니다.'
-              : mapStatus === 'error'
-                ? '네이버 지도 로딩에 실패해 기본 지도로 전환했습니다.'
-                : '스마트허브병원 위치를 네이버지도에서 불러오는 중입니다.'}
-          </Typography>
-        </Box>
-        <Stack
-          component="a"
-          href="https://map.naver.com/p/search/%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%97%88%EB%B8%8C%EB%B3%91%EC%9B%90"
-          target="_blank"
-          rel="noopener noreferrer"
-          direction="row"
-          alignItems="center"
-          spacing={1.2}
-          sx={{ alignSelf: 'flex-start', px: 2.2, py: 1.2, borderRadius: 999, bgcolor: 'white', border: '1px solid', borderColor: '#D8DDE2', color: green, textDecoration: 'none' }}
-        >
-          <Place />
-          <Typography sx={{ fontWeight: 900 }}>네이버지도 바로가기</Typography>
-          <ArrowForward sx={{ fontSize: 18 }} />
+        </Stack>
+        <Stack spacing={.85} sx={{ color: '#3D464D', fontSize: { xs: 14, md: 15 }, fontWeight: 800, lineHeight: 1.55 }}>
+          <Typography sx={{ font: 'inherit' }}>평일 : 오전 8시 부터 오후 5시</Typography>
+          <Typography sx={{ font: 'inherit' }}>토요일 : 오전 8시 부터 12:00(정오)</Typography>
+          <Typography sx={{ font: 'inherit' }}>점심시간 12:00 - 13:00</Typography>
         </Stack>
       </Box>
       {isMapReady ? (
