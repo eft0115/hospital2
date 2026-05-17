@@ -760,6 +760,8 @@ function NaverMapPanel() {
         sx={{
           position: 'absolute',
           inset: 0,
+          width: '100%',
+          height: '100%',
           zIndex: isMapReady ? 3 : 0,
           opacity: isMapReady ? 1 : 0,
           transition: 'opacity 180ms ease',
